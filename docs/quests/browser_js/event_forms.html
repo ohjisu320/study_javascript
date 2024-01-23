@@ -55,14 +55,14 @@
                 <div class="col-6">
                     </label>
                     <select class="form-select" name="car_company_name" id="carcompanyname">
-                        <option value="CAR_01">볼보</option>
+                        <option value="Volvo">볼보</option>
                         <!-- 순서를 바꾸려면 selected 삽입 -->
-                        <option value="CAR_02" selected>현대</option>
-                        <option value="CAR_03">아우디</option>
-                        <option value="CAR_04">포르쉐</option>
+                        <option value="Hyundai" selected>현대</option>
+                        <option value="Oudi">아우디</option>
+                        <option value="Porsche">포르쉐</option>
                     </select>
                 </div>
-                <div class="result"></div>
+                <div id="result"></div>
             </div>
         </div>
 
@@ -137,8 +137,9 @@
     selectElement = document.querySelector(".form-select");
 
     selectElement.addEventListener("change", (event) => {
-        const result = document.querySelector(".result");
-        result.textContent = `change`;
+        result = document.querySelector("#result");
+        result.innerHTML = `${event.target.value}로 change`;
+        consle.log(`${event.target.value}로 change`)
     });
 </script>
 </html>
