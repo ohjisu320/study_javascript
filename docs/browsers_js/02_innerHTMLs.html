@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Customer CSS - commons.css -->
+    <link rel="stylesheet" href="../css/commons.css">
+
+</head>
+
+<body>
+    <nav class="container">nav</nav>
+    <main class="container">
+        <h2>Basic Table</h2>       
+        
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</td>
+              <td>Doe</td>
+              <td>john@example.com</td>
+            </tr>
+            <tr>
+              <td id="first_td">Mary</td>
+              <td id="second_td">Moe</td>
+              <td id="third_td">mary@example.com</td>
+            </tr>
+            <tr id="third_tr">
+              <td>July</td>
+              <td>Dooley</td>
+              <td>july@example.com</td>
+            </tr>
+          </tbody>
+        </table>
+    </main>
+    <footer class="container">footer </footer>
+</body>
+<!-- javascript는 body 다음에 넣어야 함. -->
+<!-- Latest compiled JavaScript -->
+<script>
+  let first_td = document.querySelector("#first_td")
+  //undefined
+  first_td.innerHTML = `CoCo`
+  //'CoCo'
+  let second_td = document.querySelector("#second_td")
+  //undefined
+  second_td.innerHTML = `Lab`
+  //'Lab'
+  let third_td = document.querySelector("#third_td")
+  //undefined
+  third_td.innerHTML = `coco@cocolab.com`
+  //'coco@cocolab.com'
+  let third_tr = document.querySelector("#third_tr")
+  //undefined
+  third_tr.innerHTML = ``
+  //''
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
