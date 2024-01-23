@@ -10,9 +10,9 @@ let numbers = 55 ;
 // undefined
 numbers ;
 // 55
-let concat ='String:'+welcome+', Number :'+numbers
+let concat ='String:'+welcome+', Number :'+numbers ;
 // undefined
-alert(concat)
+alert(concat) ;
 // undefined
 `string :${welcome}`;
 // 'string :Hello world'
@@ -20,5 +20,5 @@ alert(concat)
 // 'string :Hello world, Number:55'
 let concats_tilt = `String :${welcome}, Number:${numbers}`;
 // undefined
-console.log(concats_tilt)
+console.log(concats_tilt) ;
 // VM965:1 String :Hello world, Number:55
