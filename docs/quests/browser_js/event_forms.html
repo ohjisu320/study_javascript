@@ -134,9 +134,10 @@
                 </div>`
         // }
     });
-    selectElement = document.querySelector(".form-select");
-
-    selectElement.addEventListener("change", (event) => {
+    // company select
+    companyselect = document.querySelector(".form-select");
+    
+    companyselect.addEventListener("change", (event) => {
         result = document.querySelector("#result");
         result.innerHTML = `${event.target.value}로 change`;
         console.log(`${event.target.value}로 change`)
