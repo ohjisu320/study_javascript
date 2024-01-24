@@ -36,32 +36,22 @@ window.onload = async (event) => {
         let previous_click = document.querySelector("#previous_id")
         let next_click = document.querySelector("#next_id")
         previous_click.addEventListener('click', (event) => {
+            let ad_array = ""
             console.log(event.code)
-            if (event.code=='click') {
-                try {
-                    for (let ad_obj of ad_all.slice(start_num-10,end_num-10)){
-                        ad_array = `${ad_array}<tr><td>${ad_obj["BRDC_YMD"]}</td><td>${ad_obj["BRDC_WKD"]}</td><td>${ad_obj["BRDC_TM_RNG"]}</td><td>${ad_obj["TPBIZ_NM_1"]}</td><td>${ad_obj["TPBIZ_NM_2"]}</td><td>${ad_obj["TPBIZ_NM_3"]}</td><td>${ad_obj["AD_CNT"]}</td></tr>`
-                        };
-                    ad_count_element.innerHTML = ad_array
-                } catch (error) {
-                    let message = "이전 데이터가 없습니다."
-                    ad_count_element.innerHTML = `${message}`     
-                }
-            }});
-        next_click.addEventListener('click', (event)=>{
-            console.log(`${event.code}`)
-        });
-        if (previous_click.addEventListener('click', (event) => {event.code=='click'})) {
             try {
+                start_num = start_num-10
+                end_num =end_num-10
                 for (let ad_obj of ad_all.slice(start_num-10,end_num-10)){
                     ad_array = `${ad_array}<tr><td>${ad_obj["BRDC_YMD"]}</td><td>${ad_obj["BRDC_WKD"]}</td><td>${ad_obj["BRDC_TM_RNG"]}</td><td>${ad_obj["TPBIZ_NM_1"]}</td><td>${ad_obj["TPBIZ_NM_2"]}</td><td>${ad_obj["TPBIZ_NM_3"]}</td><td>${ad_obj["AD_CNT"]}</td></tr>`
                     };
                 ad_count_element.innerHTML = ad_array
             } catch (error) {
                 let message = "이전 데이터가 없습니다."
-                ad_count_element.innerHTML = `${message}`     
+                ad_count_element.innerHTML = message     
             }
-        } else if (next_click.addEventListener('click', (event) => {event.code=='click'})) {
+        });
+        next_click.addEventListener('click', (event)=>{
+            let ad_array = ""
             try {
                 start_num = start_num+10
                 end_num =end_num+10
@@ -71,18 +61,10 @@ window.onload = async (event) => {
                 ad_count_element.innerHTML = ad_array
             } catch (error) {
                 let message = "다음 데이터가 없습니다."
-                ad_count_element.innerHTML = `${message}`     
-            }
-        } else {
-        }
+                ad_count_element.innerHTML = message}
+            });
     } catch (error) {
         console.log(`${error.message}`)
     };
 }
-event_keydown.addEventListener('keydown', (event) => {
-    console.log(`now key down : ${event.code}`);
-    if (event.code == 'Enter'){ // keydown 시 넘어온 event에서 코드 확인
-        console.log(`key down : ${event.code}`);
-    }
-}
-                              );
+
