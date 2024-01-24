@@ -35,7 +35,7 @@ window.onload = async (event) => {
         ad_count_element.innerHTML = ad_array
         let previous_click = document.querySelector("#previous_id")
         let next_click = document.querySelector("#next_id")
-        previous_click.addEventListener('click', (event)=>{
+        previous_click.addEventListener('click', (event) => {
             console.log(event.code)
             if (event.code=='click') {
                 try {
