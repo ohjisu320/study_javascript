@@ -19,7 +19,7 @@ window.onload = async (event) => {
         let next_click = document.querySelector("#next_id")
         // paginations
         previous_click.addEventListener('click', (event) => {
-            let ad_array = "" // ad_array 초기화
+            ad_array = "" // ad_array 초기화
             start_num = start_num-10 // start_num, end_num 재설정
             end_num =end_num-10
             if (start_num<0) { 
@@ -35,7 +35,7 @@ window.onload = async (event) => {
             ad_count_element.innerHTML = ad_array}
         });
         next_click.addEventListener('click', (event)=>{
-            let ad_array = "" // ad_array 초기화
+            ad_array = "" // ad_array 초기화
             start_num = start_num+10 // start_num, end_num 재설정
             end_num =end_num+10
             if (start_num>=ad_all.length) { //start_num이 ad_all(array)의 길이보다 커질 때
