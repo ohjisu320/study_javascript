@@ -1,8 +1,7 @@
 // datagokr_ad_count_by_times from : https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15110963
 
-
 window.onload = async (event) => {
-    let url = `https://apis.data.go.kr/B552898/ad_count_by_times/getAdCountByTimesList?serviceKey=n8q0vxEC5P2BMwv1kLcYxS7kTyu6EUP6HDeneaUs4TXvp%2Fm6Xfg5ljzg7A%2FQssE2VA%2BuOdmlkYItOj7tngykpA==&pageNo=1&numOfRows=50`;
+    let url = `https://apis.data.go.kr/B552898/ad_count_by_times/getAdCountByTimesList?serviceKey=n8q0vxEC5P2BMwv1kLcYxS7kTyu6EUP6HDeneaUs4TXvp%2Fm6Xfg5ljzg7A%2FQssE2VA%2BuOdmlkYItOj7tngykpA==&pageNo=1&numOfRows=100`;
     let options = {} ; //python dict 유사 
     try {
         let response = await fetch(url, options); //send
@@ -27,7 +26,7 @@ window.onload = async (event) => {
             if (start_num<0) {
                 start_num=-10
                 end_num=-1
-                let message = "이전 데이터가 없습니다."
+                let message = '이전 데이터가 없습니다.'
                 ad_count_element.innerHTML = message   
             }
             else {            
