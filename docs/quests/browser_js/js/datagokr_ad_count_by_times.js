@@ -8,7 +8,7 @@ window.onload = async (event) => {
         let result = await response.json(); // 응답 + json형식으로 보여지게끔 변환
         let ad_all = await result["response"]["body"]["items"]; // response > body > items > [...]
         let ad_array = "" ; //빈 리스트 정의
-        let start_num = 0
+        let start_num = 0 // 초기값 정의
         let end_num =9
         for (let ad_obj of ad_all.slice(start_num,end_num)){
             ad_array = `${ad_array}<tr><td>${ad_obj["BRDC_YMD"]}</td><td>${ad_obj["BRDC_WKD"]}</td><td>${ad_obj["BRDC_TM_RNG"]}</td><td>${ad_obj["TPBIZ_NM_1"]}</td><td>${ad_obj["TPBIZ_NM_2"]}</td><td>${ad_obj["TPBIZ_NM_3"]}</td><td>${ad_obj["AD_CNT"]}</td></tr>`
@@ -19,40 +19,39 @@ window.onload = async (event) => {
         let next_click = document.querySelector("#next_id")
         // paginations
         previous_click.addEventListener('click', (event) => {
-            let ad_array = ""
-            console.log(event.code)
-            start_num = start_num-10
+            let ad_array = "" // ad_array 초기화
+            start_num = start_num-10 // start_num, end_num 재설정
             end_num =end_num-10
-            if (start_num<0) {
-                start_num=-10
+            if (start_num<0) { 
+                start_num=-10 //start_num, end_num 재설정
                 end_num=-1
                 let message = '이전 데이터가 없습니다.'
                 ad_count_element.innerHTML = message   
             }
-            else {            
+            else {  // start_num>=0일 때          
                 for (let ad_obj of ad_all.slice(start_num,end_num)){
                 ad_array = `${ad_array}<tr><td>${ad_obj["BRDC_YMD"]}</td><td>${ad_obj["BRDC_WKD"]}</td><td>${ad_obj["BRDC_TM_RNG"]}</td><td>${ad_obj["TPBIZ_NM_1"]}</td><td>${ad_obj["TPBIZ_NM_2"]}</td><td>${ad_obj["TPBIZ_NM_3"]}</td><td>${ad_obj["AD_CNT"]}</td></tr>`
                 };
             ad_count_element.innerHTML = ad_array}
-
-
-
         });
         next_click.addEventListener('click', (event)=>{
-            let ad_array = ""
-           
-            start_num = start_num+10
+            let ad_array = "" // ad_array 초기화
+            start_num = start_num+10 // start_num, end_num 재설정
             end_num =end_num+10
-            for (let ad_obj of ad_all.slice(start_num,end_num)){
-                ad_array = `${ad_array}<tr><td>${ad_obj["BRDC_YMD"]}</td><td>${ad_obj["BRDC_WKD"]}</td><td>${ad_obj["BRDC_TM_RNG"]}</td><td>${ad_obj["TPBIZ_NM_1"]}</td><td>${ad_obj["TPBIZ_NM_2"]}</td><td>${ad_obj["TPBIZ_NM_3"]}</td><td>${ad_obj["AD_CNT"]}</td></tr>`
-                };
-            ad_count_element.innerHTML = ad_array
-            if (start_num>=ad_all.length) {
-                start_num=ad_all.length
+            if (start_num>=ad_all.length) { //start_num이 ad_all(array)의 길이보다 커질 때
+                start_num=ad_all.length //start_num,end_num 재설정
                 end_num=ad_all.length+9
-                let message = "다음 데이터가 없습니다."
-                ad_count_element.innerHTML = message   
+                let message = "다음 데이터가 없습니다." 
+                ad_count_element.innerHTML = message   // message 띄우기
+            }
+            else {
+                for (let ad_obj of ad_all.slice(start_num,end_num)){
+                    ad_array = `${ad_array}<tr><td>${ad_obj["BRDC_YMD"]}</td><td>${ad_obj["BRDC_WKD"]}</td><td>${ad_obj["BRDC_TM_RNG"]}</td><td>${ad_obj["TPBIZ_NM_1"]}</td><td>${ad_obj["TPBIZ_NM_2"]}</td><td>${ad_obj["TPBIZ_NM_3"]}</td><td>${ad_obj["AD_CNT"]}</td></tr>`
+                    };
+                ad_count_element.innerHTML = ad_array
             }})
+            
+
         } catch (error) {
             console.log(`${error.message}`)
     };
