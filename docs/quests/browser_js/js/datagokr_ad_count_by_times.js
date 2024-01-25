@@ -1,22 +1,5 @@
 // datagokr_ad_count_by_times from : https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15110963
-// let button_data = document.querySelector("#button_id");
-// button_data.addEventListener('click', async (event) => {
-//     let url = `https://apis.data.go.kr/B552898/ad_count_by_times/getAdCountByTimesList?serviceKey=n8q0vxEC5P2BMwv1kLcYxS7kTyu6EUP6HDeneaUs4TXvp%2Fm6Xfg5ljzg7A%2FQssE2VA%2BuOdmlkYItOj7tngykpA==&pageNo=1&numOfRows=30`;
-//     let options = {} ; //python dict 유사 
-//     try {
-//         let response = await fetch(url, options); //send
-//         let result = await response.json(); // 응답 + json형식으로 보여지게끔 변환
-//         let ad_all = await result["response"]["body"]["items"]; // response > body > items > [...]
-//         let ad_array = "" ; //빈 리스트 정의
-//         for (let ad_obj of ad_all){
-//             ad_array = `${ad_array}<tr><td>${ad_obj["BRDC_YMD"]}</td><td>${ad_obj["BRDC_WKD"]}</td><td>${ad_obj["BRDC_TM_RNG"]}</td><td>${ad_obj["TPBIZ_NM_1"]}</td><td>${ad_obj["TPBIZ_NM_2"]}</td><td>${ad_obj["TPBIZ_NM_3"]}</td><td>${ad_obj["AD_CNT"]}</td></tr>`
-//             };
-//             let ad_count_element = document.querySelector("#ad_count_array_id");
-//             ad_count_element.innerHTML = ad_array
-//     } catch (error) {
-//         console.log(`${error.message}`)
-//     };
-// });
+
 
 window.onload = async (event) => {
     let url = `https://apis.data.go.kr/B552898/ad_count_by_times/getAdCountByTimesList?serviceKey=n8q0vxEC5P2BMwv1kLcYxS7kTyu6EUP6HDeneaUs4TXvp%2Fm6Xfg5ljzg7A%2FQssE2VA%2BuOdmlkYItOj7tngykpA==&pageNo=1&numOfRows=50`;
@@ -68,3 +51,22 @@ window.onload = async (event) => {
     };
 }
 
+
+// let button_data = document.querySelector("#button_id");
+// button_data.addEventListener('click', async (event) => {
+//     let url = `https://apis.data.go.kr/B552898/ad_count_by_times/getAdCountByTimesList?serviceKey=n8q0vxEC5P2BMwv1kLcYxS7kTyu6EUP6HDeneaUs4TXvp%2Fm6Xfg5ljzg7A%2FQssE2VA%2BuOdmlkYItOj7tngykpA==&pageNo=1&numOfRows=30`;
+//     let options = {} ; //python dict 유사 
+//     try {
+//         let response = await fetch(url, options); //send
+//         let result = await response.json(); // 응답 + json형식으로 보여지게끔 변환
+//         let ad_all = await result["response"]["body"]["items"]; // response > body > items > [...]
+//         let ad_array = "" ; //빈 리스트 정의
+//         for (let ad_obj of ad_all){
+//             ad_array = `${ad_array}<tr><td>${ad_obj["BRDC_YMD"]}</td><td>${ad_obj["BRDC_WKD"]}</td><td>${ad_obj["BRDC_TM_RNG"]}</td><td>${ad_obj["TPBIZ_NM_1"]}</td><td>${ad_obj["TPBIZ_NM_2"]}</td><td>${ad_obj["TPBIZ_NM_3"]}</td><td>${ad_obj["AD_CNT"]}</td></tr>`
+//             };
+//             let ad_count_element = document.querySelector("#ad_count_array_id");
+//             ad_count_element.innerHTML = ad_array
+//     } catch (error) {
+//         console.log(`${error.message}`)
+//     };
+// });
